@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Óticas Alamanda · Ateliê Filipe Luz</title>
+<meta name="description" content="Instagram, WhatsApp e localização das Óticas Alamanda e do Ateliê Filipe Luz.">
+<meta name="theme-color" content="#f4efe6">
+<style>
+  :root {
+    --fundo: #f4efe6;
+    --cartao: #fbf8f2;
+    --tinta: #2f2b24;
+    --suave: #7a7163;
+    --linha: #e2d9c9;
+    --toque: #ece4d6;
+    --vinho: #9b1c47;
+    --preto: #1a1a1a;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--fundo);
+    color: var(--tinta);
+    font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 48px 16px 40px;
+  }
+  main { width: 100%; max-width: 420px; }
+  header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 40px;
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
+  }
+  .marca { text-align: center; padding: 22px 6px; }
+  .marca + .marca { border-left: 1px solid var(--linha); }
+  .marca small { display: block; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 6px; }
+  .marca strong { display: block; font-size: 21px; line-height: 1.1; text-transform: uppercase; }
+  .marca.alamanda { color: var(--vinho); }
+  .marca.alamanda strong { font-weight: 300; letter-spacing: 0.16em; }
+  .marca.filipe { color: var(--preto); }
+  .marca.filipe small { font-weight: 300; }
+  .marca.filipe strong { font-weight: 800; letter-spacing: 0.04em; }
+  section.alamanda h2, section.alamanda svg { color: var(--vinho); }
+  section.filipe h2, section.filipe svg { color: var(--preto); }
+  section { margin-bottom: 32px; }
+  h2 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--suave);
+    margin: 0 0 12px 4px;
+  }
+  a.botao {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 60px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    background: var(--cartao);
+    border: 1px solid var(--linha);
+    border-radius: 16px;
+    color: var(--tinta);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: background .15s ease;
+  }
+  a.botao:hover, a.botao:focus-visible { background: var(--toque); }
+  a.botao:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+  a.botao svg { width: 22px; height: 22px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  a.botao span { flex: 1; }
+  a.botao::after { content: "›"; color: var(--suave); font-size: 22px; line-height: 1; }
+  @media (max-width: 340px) { .marca strong { font-size: 18px; } }
+  footer { text-align: center; color: var(--suave); font-size: 12px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="marca alamanda">
+      <small>Óticas</small>
+      <strong>Alamanda</strong>
+    </div>
+    <div class="marca filipe">
+      <small>Ateliê</small>
+      <strong>Filipe Luz</strong>
+    </div>
+  </header>
+
+  <section class="alamanda">
+    <h2>Óticas Alamanda</h2>
+    <a class="botao" href="https://wa.me/5562981374913?text=Ol%C3%A1!%20Vim%20pelo%20QR%20Code." rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a class="botao" href="https://www.instagram.com/oticas_alamanda/" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>
+      <span>Instagram</span>
+    </a>
+    <a class="botao" href="https://www.google.com/maps/place/oticas+alamanda/data=!4m2!3m1!1s0x935ea5c7505e7817:0xf7d860e022d356a8" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      <span>Como chegar</span>
+    </a>
+    <a class="botao" href="https://oticaalamanda.com.br/" rel="noopener">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.5 3.5 8.5s-1 5.9-3.5 8.5c-2.5-2.6-3.5-5.5-3.5-8.5s1-5.9 3.5-8.5z"/></svg>
+      <span>Site</span>
+    </a>
+  </section>
+
+  <section class="filipe">
+    <h2>Ateliê Filipe Luz</h2>
+    <a class="botao" href="https://wa.me/5562991596413?text=Ol%C3%A1!%20Vim%20pelo%20QR%20Code." rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a class="botao" href="https://www.instagram.com/ateliefilipeluz/" rel="noopener">
+      <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg>
+      <span>Instagram</span>
+    </a>
+  </section>
+</main>
+</body>
+</html>
