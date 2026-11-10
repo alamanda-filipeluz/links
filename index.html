@@ -2,103 +2,112 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="no-referrer">
 <title>Óticas Alamanda · Ateliê Filipe Luz</title>
 <meta name="description" content="Instagram, WhatsApp e localização das Óticas Alamanda e do Ateliê Filipe Luz.">
-<meta name="theme-color" content="#f4efe6">
+<meta name="theme-color" content="#111111">
+<link rel="preload" as="image" href="midia/fundo.jpg">
 <style>
   :root {
-    --fundo: #f4efe6;
-    --cartao: #fbf8f2;
-    --tinta: #2f2b24;
-    --suave: #7a7163;
-    --linha: #e2d9c9;
-    --toque: #ece4d6;
-    --vinho: #9b1c47;
-    --preto: #1a1a1a;
+    --texto: #ffffff;
+    --suave: rgba(255, 255, 255, 0.72);
+    --borda: rgba(255, 255, 255, 0.55);
+    --vidro: rgba(255, 255, 255, 0.07);
+    --toque: rgba(255, 255, 255, 0.18);
+    --alamanda: #e5404a;
+    --atelie: #e8862f;
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { -webkit-text-size-adjust: 100%; background: #111; }
   body {
     margin: 0;
     min-height: 100vh;
-    background: var(--fundo);
-    color: var(--tinta);
-    font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100svh;
+    color: var(--texto);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     display: flex;
     justify-content: center;
-    padding: 48px 16px 40px;
+    align-items: stretch;
+    padding: max(28px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
   }
-  main { width: 100%; max-width: 420px; }
-  header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    margin-bottom: 40px;
-    border-top: 1px solid var(--linha);
-    border-bottom: 1px solid var(--linha);
+
+  /* Vídeo de fundo, em tela cheia e escurecido. */
+  .fundo { position: fixed; inset: 0; z-index: 0; overflow: hidden; background: #111 url("midia/fundo.jpg") center / cover no-repeat; }
+  .fundo video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .veu {
+    position: fixed; inset: 0; z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0.62) 100%);
   }
-  .marca { text-align: center; padding: 22px 6px; }
-  .marca + .marca { border-left: 1px solid var(--linha); }
-  .marca small { display: block; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 6px; }
-  .marca strong { display: block; font-size: 21px; line-height: 1.1; text-transform: uppercase; }
-  .marca.alamanda { color: var(--vinho); }
-  .marca.alamanda strong { font-weight: 300; letter-spacing: 0.16em; }
-  .marca.filipe { color: var(--preto); }
-  .marca.filipe small { font-weight: 300; }
-  .marca.filipe strong { font-weight: 800; letter-spacing: 0.04em; }
-  section.alamanda h2, section.alamanda svg { color: var(--vinho); }
-  section.filipe h2, section.filipe svg { color: var(--preto); }
-  section { margin-bottom: 32px; }
-  h2 {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--suave);
-    margin: 0 0 12px 4px;
+
+  /* Em pé: o conteúdo ocupa a altura inteira da tela, distribuído por igual. */
+  main {
+    position: relative; z-index: 2; width: 100%; max-width: 420px;
+    display: flex; flex-direction: column; justify-content: space-evenly; gap: 28px;
   }
+  section { margin: 0; }
+  .marca { display: flex; flex-direction: column; align-items: center; margin: 0 0 16px; }
+  .marca img { display: block; height: clamp(36px, 5.6svh, 54px); width: auto; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.35)); }
+  .atelie .marca img { height: clamp(40px, 6.2svh, 60px); }
+  .marca::after { content: ""; display: block; width: 36px; height: 2px; border-radius: 2px; margin-top: 12px; }
+  .alamanda .marca::after { background: var(--alamanda); }
+  .atelie .marca::after { background: var(--atelie); }
+
   a.botao {
     display: flex;
     align-items: center;
     gap: 14px;
-    min-height: 60px;
+    min-height: clamp(52px, 7svh, 66px);
     padding: 0 20px;
     margin-bottom: 10px;
-    background: var(--cartao);
-    border: 1px solid var(--linha);
+    background: var(--vidro);
+    border: 1px solid var(--borda);
     border-radius: 16px;
-    color: var(--tinta);
+    color: var(--texto);
     text-decoration: none;
     font-size: 17px;
     font-weight: 500;
-    transition: background .15s ease;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    transition: background .15s ease, border-color .15s ease;
   }
-  a.botao:hover, a.botao:focus-visible { background: var(--toque); }
-  a.botao:focus-visible { outline: 2px solid var(--tinta); outline-offset: 2px; }
+  a.botao:hover, a.botao:focus-visible { background: var(--toque); border-color: #fff; }
+  a.botao:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
   a.botao svg { width: 22px; height: 22px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
   a.botao span { flex: 1; }
   a.botao::after { content: "›"; color: var(--suave); font-size: 22px; line-height: 1; }
-  @media (max-width: 340px) { .marca strong { font-size: 18px; } }
-  footer { text-align: center; color: var(--suave); font-size: 12px; margin-top: 8px; }
+
+  /* Deitado: as duas lojas lado a lado. */
+  @media (orientation: landscape) {
+    main { max-width: 980px; flex-direction: row; align-items: center; justify-content: center; gap: clamp(28px, 6vw, 72px); }
+    section { flex: 1; max-width: 420px; }
+    a.botao { min-height: clamp(44px, 8.5svh, 60px); }
+  }
+  /* Celular deitado (tela baixa): tudo mais compacto para caber sem rolar. */
+  @media (orientation: landscape) and (max-height: 520px) {
+    body { padding-top: max(14px, env(safe-area-inset-top)); padding-bottom: max(14px, env(safe-area-inset-bottom)); }
+    .marca { margin-bottom: 8px; }
+    .marca::after { margin-top: 7px; }
+    .marca img { height: 30px; }
+    .atelie .marca img { height: 34px; }
+    a.botao { min-height: 40px; margin-bottom: 7px; font-size: 15px; border-radius: 12px; padding: 0 16px; }
+    a.botao svg { width: 19px; height: 19px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .fundo video { display: none; } }
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <div class="marca alamanda">
-      <small>Óticas</small>
-      <strong>Alamanda</strong>
-    </div>
-    <div class="marca filipe">
-      <small>Ateliê</small>
-      <strong>Filipe Luz</strong>
-    </div>
-  </header>
+<div class="fundo" aria-hidden="true">
+  <video id="fundo" autoplay muted loop playsinline preload="auto" poster="midia/fundo.jpg" src="midia/fundo.mp4"></video>
+</div>
+<div class="veu" aria-hidden="true"></div>
 
+<main>
   <section class="alamanda">
-    <h2>Óticas Alamanda</h2>
+    <h1 class="marca"><img src="midia/logo-alamanda.png" alt="Óticas Alamanda"></h1>
     <a class="botao" href="https://wa.me/5562981374913?text=Ol%C3%A1!%20Vim%20pelo%20QR%20Code." rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"/></svg>
       <span>WhatsApp</span>
@@ -117,8 +126,8 @@
     </a>
   </section>
 
-  <section class="filipe">
-    <h2>Ateliê Filipe Luz</h2>
+  <section class="atelie">
+    <h1 class="marca"><img src="midia/logo-atelie.png" alt="Ateliê Filipe Luz"></h1>
     <a class="botao" href="https://wa.me/5562991596413?text=Ol%C3%A1!%20Vim%20pelo%20QR%20Code." rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.5-4.3A8.5 8.5 0 1 1 20.5 11.6z"/></svg>
       <span>WhatsApp</span>
@@ -129,5 +138,24 @@
     </a>
   </section>
 </main>
+<script>
+  // Em pé usa o vídeo vertical; deitado, a versão horizontal (fica nítida e sem cortar demais).
+  (function () {
+    var v = document.getElementById('fundo');
+    var deitado = window.matchMedia('(orientation: landscape)');
+    function escolhe() {
+      var nome = deitado.matches ? 'fundo-horizontal' : 'fundo';
+      var src = 'midia/' + nome + '.mp4';
+      if (v.getAttribute('src') === src) return;
+      var t = v.currentTime || 0;
+      v.poster = 'midia/' + nome + '.jpg';
+      document.querySelector('.fundo').style.backgroundImage = 'url(midia/' + nome + '.jpg)';
+      v.src = src;
+      v.addEventListener('loadedmetadata', function () { try { v.currentTime = t % (v.duration || 1); } catch (e) {} var p = v.play(); if (p) p.catch(function () {}); }, {once: true});
+    }
+    escolhe();
+    if (deitado.addEventListener) deitado.addEventListener('change', escolhe); else deitado.addListener(escolhe);
+  })();
+</script>
 </body>
 </html>
